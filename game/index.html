@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spot It! Twin Pictures — a spot-the-difference hunt</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<header class="hud">
+  <div class="brand">
+    <div class="logo" aria-hidden="true">◎</div>
+    <div>
+      <p class="brand-name">Spot It! Twin Pictures</p>
+      <p class="brand-sub" id="round-name">Round 1 · Sunny Garden Cottage</p>
+    </div>
+  </div>
+  <div class="counter" role="status" aria-label="Differences remaining">
+    <span class="counter-num" id="remaining">5</span>
+    <span class="counter-label" id="remaining-word">differences left</span>
+  </div>
+  <div class="timer" aria-label="Time remaining">
+    <span class="timer-text" id="timer-text">3:00</span>
+    <div class="timer-bar"><div class="timer-fill" id="timer-fill"></div></div>
+  </div>
+  <div class="stats">
+    <span class="pill" id="round-pill">Round 1 of 3</span>
+    <span class="pill">Score <strong id="score">0</strong></span>
+    <span class="pill">Mistakes <strong id="mistakes">0</strong></span>
+    <span class="pill">Hints <strong id="hints-left">3</strong></span>
+  </div>
+</header>
+
+<main class="stage">
+  <section class="panels">
+    <figure class="panel">
+      <canvas id="panel-left" width="600" height="440" aria-label="Picture A, the original scene"></canvas>
+      <figcaption><span class="tag tag-a">A</span> Picture A — the original</figcaption>
+    </figure>
+    <div class="versus" aria-hidden="true">VS</div>
+    <figure class="panel">
+      <canvas id="panel-right" width="600" height="440" aria-label="Picture B, the changed scene"></canvas>
+      <figcaption><span class="tag tag-b">B</span> Picture B — spot what changed</figcaption>
+    </figure>
+  </section>
+
+  <div class="toolbar">
+    <button id="hint-btn" type="button">💡 Hint (−50)</button>
+    <button id="pause-btn" type="button">⏸ Pause (P)</button>
+    <button id="restart-btn" type="button">↻ Restart round (R)</button>
+    <button id="mute-btn" type="button">🔊 Sound on</button>
+    <button id="start-btn" type="button" class="primary">▶ Start</button>
+    <p class="message" id="message">Click a difference in either picture — it counts on both.</p>
+  </div>
+
+  <div class="overlay" id="overlay">
+    <div class="overlay-card" id="overlay-body"></div>
+  </div>
+</main>
+
+<footer class="keys">
+  <span><kbd>← ↑ ↓ →</kbd> move reticle</span>
+  <span><kbd>Enter</kbd> select</span>
+  <span><kbd>Shift</kbd>+arrows fine move</span>
+  <span><kbd>Tab</kbd> sweep</span>
+  <span><kbd>H</kbd> hint</span>
+  <span><kbd>R</kbd> restart</span>
+  <span><kbd>P</kbd> pause</span>
+  <span><kbd>M</kbd> mute</span>
+  <span class="foot-note">Original art, drawn in code. No images, no network.</span>
+</footer>
+
+<p id="status" class="sr-only" role="status" aria-live="polite"></p>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
